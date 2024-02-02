@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayway JsonPath Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            color: #007BFF;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Jayway JsonPath Examples</h1>
+
+<p>JsonPath is a query language for JSON that allows you to extract specific data from a JSON structure. Jayway JsonPath is a Java library that provides an implementation of JsonPath.</p>
+
+<p>With Jayway JsonPath, you can define expressions to traverse JSON structures and retrieve data based on certain criteria. It supports a syntax similar to XPath, which is used for XML documents. JsonPath expressions can be used to filter, map, and extract data from JSON objects.</p>
+
+<h2>Example 1: Extracting a Single Value</h2>
+
+<pre>
+        <code>
+            String json = "{ &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30, &quot;city&quot;: &quot;New York&quot; }";
+            Object name = JsonPath.read(json, &quot;$.name&quot;);
+            System.out.println(&quot;Name: &quot; + name);
+        </code>
+    </pre>
+
+<p>In this example, the JsonPath expression <code>$.name</code> is used to extract the value of the &quot;name&quot; field from the JSON document.</p>
+
+<h2>Example 2: Filtering with Criteria</h2>
+
+<pre>
+        <code>
+            String jsonArray = "[{ &quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25 }, { &quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 35 }]";
+            List&lt;String&gt; names = JsonPath.read(jsonArray, &quot;$[?(@.age &gt; 30)].name&quot;);
+            System.out.println(&quot;Names of people older than 30: &quot; + names);
+        </code>
+    </pre>
+
+<p>This example demonstrates filtering an array of objects based on a criteria (age &gt; 30) and extracting the names of matching objects.</p>
+
+<!-- Add more examples as needed -->
+
+</body>
+</html>

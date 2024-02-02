@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Methods with Examples</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+<h1>HTTP Methods with Examples</h1>
+
+<table>
+    <tr>
+        <th>Method</th>
+        <th>Description</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td>Retrieve data from the server. Safe and idempotent.</td>
+        <td><code>GET /users/johndoe HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>POST</td>
+        <td>Submit data to be processed. May cause a change in server state.</td>
+        <td>
+            <code>POST /users HTTP/1.1</code><br>
+            <code>Content-Type: application/json</code><br>
+            <code>{ "username": "newuser", "password": "password123" }</code>
+        </td>
+    </tr>
+    <tr>
+        <td>PUT</td>
+        <td>Update a resource on the server. Replaces or creates a new one.</td>
+        <td>
+            <code>PUT /users/johndoe HTTP/1.1</code><br>
+            <code>Content-Type: application/json</code><br>
+            <code>{ "name": "John Doe", "email": "john.doe@example.com" }</code>
+        </td>
+    </tr>
+    <tr>
+        <td>PATCH</td>
+        <td>Apply partial modifications to a resource.</td>
+        <td>
+            <code>PATCH /users/johndoe HTTP/1.1</code><br>
+            <code>Content-Type: application/json</code><br>
+            <code>{ "email": "newemail@example.com" }</code>
+        </td>
+    </tr>
+    <tr>
+        <td>DELETE</td>
+        <td>Delete a specified resource on the server.</td>
+        <td><code>DELETE /users/johndoe HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>HEAD</td>
+        <td>Retrieve only the headers of a resource.</td>
+        <td><code>HEAD /users/johndoe HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>OPTIONS</td>
+        <td>Retrieve information about the communication options for the target resource.</td>
+        <td><code>OPTIONS /users/johndoe HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>TRACE</td>
+        <td>Echo the received request to test and troubleshoot.</td>
+        <td><code>TRACE /users/johndoe HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>CONNECT</td>
+        <td>Establish a transparent TCP/IP tunnel for SSL-encrypted communication.</td>
+        <td><code>CONNECT server.example.com:443 HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>PROPFIND</td>
+        <td>Retrieve properties (metadata) of a resource.</td>
+        <td><code>PROPFIND /files/docs HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>PROPPATCH</td>
+        <td>Apply partial modifications to the properties of a resource.</td>
+        <td>
+            <code>PROPPATCH /files/docs HTTP/1.1</code><br>
+            <code>Content-Type: application/xml</code><br>
+            <code>&lt;propertyupdate xmlns="DAV:"&gt;...&lt;/propertyupdate&gt;</code>
+        </td>
+    </tr>
+    <tr>
+        <td>MKCOL</td>
+        <td>Create a new collection (e.g., a new directory).</td>
+        <td><code>MKCOL /files/images HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>COPY</td>
+        <td>Copy a resource from one URI to another.</td>
+        <td>
+            <code>COPY /files/docs/report.txt HTTP/1.1</code><br>
+            <code>Destination: /archive/report.txt</code>
+        </td>
+    </tr>
+    <tr>
+        <td>MOVE</td>
+        <td>Move a resource from one URI to another.</td>
+        <td>
+            <code>MOVE /files/docs/report.txt HTTP/1.1</code><br>
+            <code>Destination: /archive/report.txt</code>
+        </td>
+    </tr>
+    <tr>
+        <td>LOCK</td>
+        <td>Establish a lock on a resource.</td>
+        <td><code>LOCK /files/docs/report.txt HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>UNLOCK</td>
+        <td>Release a lock on a resource.</td>
+        <td><code>UNLOCK /files/docs/report.txt HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>REPORT</td>
+        <td>Request information about the resources contained in a collection.</td>
+        <td><code>REPORT /files/docs HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>MKACTIVITY</td>
+        <td>Create a new activity.</td>
+        <td><code>MKACTIVITY /version-control/activity123 HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>MERGE</td>
+        <td>Perform a logical merge of changes into a new resource.</td>
+        <td><code>MERGE /version-control/activity123 HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>CHECKOUT</td>
+        <td>Check out a resource for exclusive editing.</td>
+        <td><code>CHECKOUT /version-control/docs/report.txt HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>CHECKIN</td>
+        <td>Check in a resource after exclusive editing.</td>
+        <td><code>CHECKIN /version-control/docs/report.txt HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>LABEL</td>
+        <td>Add a label to a resource.</td>
+        <td><code>LABEL /version-control/docs/report.txt HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>UPDATE</td>
+        <td>Update a working resource to reflect the current state.</td>
+        <td><code>UPDATE /version-control/docs/report.txt HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>VERSION-CONTROL</td>
+        <td>Version control a resource.</td>
+        <td><code>VERSION-CONTROL /version-control/docs/report.txt HTTP/1.1</code></td>
+    </tr>
+    <tr>
+        <td>BASELINE-CONTROL</td>
+        <td>Specify the DAV compliance of the baseline for a version-controlled resource.</td>
+        <td><code>BASELINE-CONTROL /version-control/docs/report.txt HTTP/1.1</code></td>
+    </tr>
+</table>
+</body>
+
+</html>
